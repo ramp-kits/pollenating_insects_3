@@ -38,7 +38,7 @@ class BatchClassifier(object):
         x = Flatten(name='flatten')(x)
         x = Dense(4096, activation='relu', name='fc1')(x)
         x = Dense(4096, activation='relu', name='fc2')(x)
-        out = Dense(209, activation='softmax', name='predictions')(x)
+        out = Dense(403, activation='softmax', name='predictions')(x)
         model = Model(inp, out)
         model.compile(
             loss='categorical_crossentropy', optimizer=SGD(lr=1e-4),

@@ -145,7 +145,7 @@ class Net(nn.Module):
             nn.ReLU(True),
             nn.Linear(4096, 4096),
             nn.ReLU(True),
-            nn.Linear(4096, 209),
+            nn.Linear(4096, 403),
         )
         self._initialize_weights()
 

@@ -102,7 +102,7 @@ class BatchClassifier(object):
             4096, activation='relu',
             name='fc2')(x)
         out = Dense(
-            209, activation='softmax',
+            403, activation='softmax',
             name='predictions')(x)
         model = Model(inp, out)
         model.compile(

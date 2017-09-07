@@ -104,7 +104,7 @@ class Net(nn.Module):
             nn.Linear(4096, 4096),
             nn.BatchNorm1d(4096),
             nn.ReLU(True),
-            nn.Linear(4096, 209),
+            nn.Linear(4096, 403),
         )
 
     def forward(self, x):
