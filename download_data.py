@@ -14,7 +14,7 @@ if os.path.exists('data'):
     shutil.rmtree('data')
 os.mkdir('data')
 
-url = 'https://storage.ramp.studio/pollenating_insects_2'
+url = 'https://storage.ramp.studio/pollenating_insects_3'
 f_names = ['class_codes.csv', 'test.csv', 'train.csv', 'imgs.zip']
 for f_name in f_names:
     url_in = '{}/{}'.format(url, f_name)
@@ -24,5 +24,5 @@ for f_name in f_names:
     call(cmd, shell=True)
 
 call('unzip data/imgs.zip', shell=True)
-os.rename('data_2/public_imgs', 'data/imgs')
-shutil.rmtree('data_2')
+os.rename('data_3/public_imgs', 'data/imgs')
+shutil.rmtree('data_3')
