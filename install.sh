@@ -11,6 +11,15 @@ sudo apt-get install --yes unzip
 sudo apt-get install --yes screen
 conda update --yes --quiet conda
 
+conda install --yes numpy
+conda install --yes pandas
+conda install --yes scikit-learn
+conda install --yes scikit-image
+conda install --yes joblib
+conda install --yes cloudpickle
+conda install --yes gitpython
+
+
 
 # Clone starting kit and download data
 git clone https://github.com/ramp-kits/pollenating_insects_3
