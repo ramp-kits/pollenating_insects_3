@@ -3,9 +3,9 @@ import pandas as pd
 import rampwf as rw
 from sklearn.model_selection import StratifiedShuffleSplit
 
-problem_title = 'Pollenating insect classification (209 classes)'
+problem_title = 'Pollenating insect classification (403 classes)'
 _target_column_name = 'class'
-_prediction_label_names = range(0, 209)
+_prediction_label_names = range(0, 403)
 # A type (class) which will be used to create wrapper objects for y_pred
 Predictions = rw.prediction_types.make_multiclass(
     label_names=_prediction_label_names)
@@ -20,6 +20,7 @@ workflow = rw.workflows.ImageClassifier(
 score_types = [
     rw.score_types.Accuracy(name='accuracy'),
     rw.score_types.NegativeLogLikelihood(name='nll'),
+    rw.score_types.F1Above(name='f170', threshold=0.7),
 ]
 
 
