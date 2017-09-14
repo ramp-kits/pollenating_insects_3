@@ -25,3 +25,18 @@ conda install --yes gitpython
 git clone https://github.com/ramp-kits/pollenating_insects_3
 cd pollenating_insects_3
 python download_data.py
+
+# Install keras, tensorflow, mxnet, and pytorch
+cd ~
+sed -i "s/alias python=python3//g" ~/.bashrc
+echo "export PATH=\$HOME/miniconda/bin:\$PATH" >> ~/.bashrc
+unalias python
+source ~/.bashrc
+pip install h5py==2.7.1
+pip install tensorflow-gpu==1.3.0
+pip install mxnet-cu80==0.11.0
+pip install keras==2.0.8
+pip install http://download.pytorch.org/whl/cu80/torch-0.2.0.post3-cp27-cp27mu-manylinux1_x86_64.whl 
+pip install torchvision==0.1.9
+wget http://developer.download.nvidia.com/compute/machine-learning/repos/ubuntu1604/x86_64/libcudnn6_6.0.21-1+cuda8.0_amd64.deb
+sudo dpkg -i libcudnn6_6.0.21-1+cuda8.0_amd64.deb
