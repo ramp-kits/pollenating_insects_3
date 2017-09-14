@@ -5,7 +5,7 @@ from keras.layers import Flatten
 from keras.layers import BatchNormalization
 from keras.layers import Activation
 from keras.applications.vgg16 import VGG16
-from keras.optimizers import SGD
+from keras.optimizers import Adam
 from rampwf.workflows.image_classifier import get_nb_minibatches
 
 
@@ -47,6 +47,8 @@ class BatchClassifier(object):
         out = Dense(403, activation='softmax', name='predictions')(x)
         model = Model(inp, out)
         model.compile(
-            loss='categorical_crossentropy', optimizer=SGD(lr=1e-4),
+            loss='categorical_crossentropy', optimizer=Adam(lr=1e-4),
             metrics=['accuracy'])
         return model
+
+    
