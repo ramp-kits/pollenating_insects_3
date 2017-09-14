@@ -5,7 +5,7 @@ from keras.layers import Flatten
 from keras.layers import BatchNormalization
 from keras.layers import Activation
 from keras.applications.vgg16 import VGG16
-from keras.optimizers import SGD
+from keras.optimizers import SGD, Adam
 from rampwf.workflows.image_classifier import get_nb_minibatches
 
 
@@ -20,20 +20,20 @@ class BatchClassifier(object):
                 batch_size=batch_size, valid_ratio=0.1)
         self.model.fit_generator(
             gen_train,
-            steps_per_epoch=get_nb_minibatches(nb_train, batch_size),
-            epochs=10,
-            max_queue_size=16,
-            workers=1,
-            use_multiprocessing=True,
+	    samples_per_epoch=nb_train,
+            nb_epoch=100,
+            max_q_size=16,
+            nb_worker=1,
+            pickle_safe=True,
             validation_data=gen_valid,
-            validation_steps=get_nb_minibatches(nb_valid, batch_size),
+            nb_val_samples=nb_valid,
             verbose=1)
 
     def predict_proba(self, X):
         return self.model.predict(X)
 
     def _build_model(self):
-        vgg16 = VGG16(include_top=False, weights='imagenet')
+        vgg16 = VGG16(include_top=False, weights='imagenet', input_shape=(3, 224, 224))
         # vgg16.trainable = False
         inp = Input((3, 224, 224))
         x = vgg16(inp)
@@ -46,7 +46,10 @@ class BatchClassifier(object):
         x = Activation('relu')(x)        
         out = Dense(403, activation='softmax', name='predictions')(x)
         model = Model(inp, out)
+	NUM_GPU = 1 # or the number of GPUs available on your machine
+	gpu_list = ['gpu(%d)' % i for i in range(NUM_GPU)]
         model.compile(
-            loss='categorical_crossentropy', optimizer=SGD(lr=1e-4),
-            metrics=['accuracy'])
+            loss='categorical_crossentropy', optimizer=Adam(lr=1e-4),
+            metrics=['accuracy'],
+            context=gpu_list)
         return model
