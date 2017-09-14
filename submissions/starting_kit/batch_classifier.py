@@ -66,7 +66,7 @@ class BatchClassifier(object):
         return self.model.predict(X)
 
     def _build_model(self):
-        inp = Input((3, 32, 32))
+        inp = Input((32, 32, 3))
         # Block 1
         x = Conv2D(
             32, (3, 3), activation='relu', padding='same',
