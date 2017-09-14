@@ -33,7 +33,7 @@ class BatchClassifier(object):
 
     def _build_model(self):
         # This is VGG16
-        inp = Input((3, 64, 64))
+        inp = Input((64, 64, 3))
         # Block 1
         x = Conv2D(
             64, (3, 3), activation='relu', padding='same',
