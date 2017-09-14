@@ -35,7 +35,7 @@ class BatchClassifier(object):
     def _build_model(self):
         vgg16 = VGG16(include_top=False, weights='imagenet')
         # vgg16.trainable = False
-        inp = Input((3, 224, 224))
+        inp = Input((224, 224, 3))
         x = vgg16(inp)
         x = Flatten(name='flatten')(x)
         x = Dense(4096, activation='linear', name='fc1')(x)

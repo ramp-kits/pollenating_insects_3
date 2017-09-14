@@ -37,7 +37,7 @@ class BatchClassifier(object):
         hid = vgg16.get_layer(name='block3_conv3')
         vgg16_hid = Model(inp.input, hid.output)
 
-        inp = Input((3, 224, 224))
+        inp = Input((224, 224, 3))
         x = vgg16_hid(inp)
         x = Flatten(name='flatten')(x)
         x = Dense(500, activation='relu', name='fc')(x)

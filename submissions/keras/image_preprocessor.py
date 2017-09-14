@@ -11,5 +11,4 @@ def transform(x):
 
     x = resize(x, (64, 64), preserve_range=True)
     x = x / 255.
-    x = x.transpose((2, 0, 1))
     return x
