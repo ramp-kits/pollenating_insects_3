@@ -18,9 +18,9 @@ workflow = rw.workflows.ImageClassifier(
 )
 
 score_types = [
-    rw.score_types.Accuracy(name='accuracy'),
-    rw.score_types.NegativeLogLikelihood(name='nll'),
-    rw.score_types.F1Above(name='f170', threshold=0.7),
+    rw.score_types.Accuracy(name='accuracy', precision=3),
+    rw.score_types.NegativeLogLikelihood(name='nll', precision=3),
+    rw.score_types.F1Above(name='f170', threshold=0.7, precision=3),
 ]
 
 
