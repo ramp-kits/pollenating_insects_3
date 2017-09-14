@@ -33,9 +33,7 @@ python download_data.py
 
 # Install keras, tensorflow, mxnet, and pytorch
 cd ~
-sed -i "s/alias python=python3//g" ~/.bashrc
 echo "export PATH=\$HOME/miniconda/bin:\$PATH" >> ~/.bashrc
-unalias python
 source ~/.bashrc
 pip install h5py==2.7.1
 pip install tensorflow-gpu==1.3.0
