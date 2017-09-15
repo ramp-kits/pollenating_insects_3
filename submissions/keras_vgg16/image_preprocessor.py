@@ -12,3 +12,6 @@ def transform(x):
     x = resize(x, (64, 64), preserve_range=True)
     x = x / 255.
     return x
+
+def transform_test(x):
+    return transform(x)

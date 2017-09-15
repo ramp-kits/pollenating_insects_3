@@ -21,3 +21,6 @@ def transform(x):
     x[2, :, :] -= 0.406
     x[2, :, :] /= 0.225
     return x
+
+def transform_test(x):
+    return transform(x)
