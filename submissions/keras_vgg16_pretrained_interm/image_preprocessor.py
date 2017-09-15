@@ -17,3 +17,6 @@ def transform(x):
     x[:, :, 1] -= 116.779
     x[:, :, 2] -= 123.68
     return x
+
+def transform_test(x):
+    return transform(x)

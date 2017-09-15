@@ -13,3 +13,6 @@ def transform(x):
     x /= 255.
     x = x.transpose((2, 0, 1))
     return x
+
+def transform_test(x):
+    return transform(x)
