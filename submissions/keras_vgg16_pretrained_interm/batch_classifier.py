@@ -42,10 +42,11 @@ class BatchClassifier(object):
         x = vgg16_hid(inp)
         x = Flatten(name='flatten')(x)
         x = Dense(200, activation='linear', name='fc')(x)
-	x = BatchNormalization()(x)
+        x = BatchNormalization()(x)
         out = Dense(403, activation='softmax', name='predictions')(x)
         model = Model(inp, out)
         model.compile(
             loss='categorical_crossentropy',
             optimizer=SGD(lr=1e-4, momentum=0.95), metrics=['accuracy'])
         return model
+
