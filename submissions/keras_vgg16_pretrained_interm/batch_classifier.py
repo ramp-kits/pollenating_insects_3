@@ -2,6 +2,7 @@ from keras.models import Model
 from keras.layers import Input
 from keras.layers import Dense
 from keras.layers import Flatten
+from keras.layers import BatchNormalization
 from keras.applications.vgg16 import VGG16
 from keras.optimizers import SGD
 from rampwf.workflows.image_classifier import get_nb_minibatches
@@ -40,7 +41,8 @@ class BatchClassifier(object):
         inp = Input((224, 224, 3))
         x = vgg16_hid(inp)
         x = Flatten(name='flatten')(x)
-        x = Dense(500, activation='relu', name='fc')(x)
+        x = Dense(200, activation='linear', name='fc')(x)
+	x = BatchNormalization()(x)
         out = Dense(403, activation='softmax', name='predictions')(x)
         model = Model(inp, out)
         model.compile(
