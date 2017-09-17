@@ -15,7 +15,7 @@ python download_data.py
 the first time. It will create `data/imgs` and download the images there
 using the names `<id>`, where `<id>`s are coming from `data/train.csv` and `data/test.csv`. If images are properly unzipped in `data/imgs`, you can delete the zip file `data/imgs.zip` to save space.
 
-We have included an [`install.sh`](install.sh) script that we used to set up a fresh Ubuntu 16.04 server with GPU. Depending on your current installation, you may not need to execute all of this, but it shows the versions of the various libraries aginst which we tested the starting kit.
+We have included an [`install.sh`](install.sh) script that we used to set up a fresh Ubuntu 16.04 server with GPU. Depending on your current installation, you may not need to execute all of this, but it shows the versions of the various libraries against which we tested the starting kit.
 
 You should set `image_data_format` to `channels_last` in `~/.keras/keras.json`.
 
