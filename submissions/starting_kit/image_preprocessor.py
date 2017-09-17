@@ -6,8 +6,8 @@ def transform(x):
         x = x[:, :, 0:3]
     h, w = x.shape[:2]
     min_shape = min(h, w)
-    x = x[h / 2 - min_shape / 2:h / 2 + min_shape / 2,
-          w / 2 - min_shape / 2:w / 2 + min_shape / 2]
+    x = x[h // 2 - min_shape // 2:h // 2 + min_shape // 2,
+          w // 2 - min_shape // 2:w // 2 + min_shape // 2]
 
     x = resize(x, (32, 32), preserve_range=True)
     x = x / 255.
