@@ -15,11 +15,7 @@ python download_data.py
 the first time. It will create `data/imgs` and download the images there
 using the names `<id>`, where `<id>`s are coming from `data/train.csv` and `data/test.csv`. If images are properly unzipped in `data/imgs`, you can delete the zip file `data/imgs.zip` to save space.
 
-You should install keras 2.0.6, for example, like this:
-
-```
-conda install -c conda-forge keras
-```
+We have included an [`install.sh`](install.sh) script that we used to set up a fresh Ubuntu 16.04 server with GPU. Depending on your current installation, you may not need to execute all of this, but it shows the versions of the various libraries aginst which we tested the starting kit.
 
 You should set `image_data_format` to `channels_first` in `~/.keras/keras.json`.
 
@@ -37,5 +33,11 @@ ramp_test_submission --submission <submission>
 
 to execute other example submissions from the folder `submissions`.
 
+We have also preinstalled the starting kit and the data on the Oregon site of [AWS](https://us-west-2.console.aws.amazon.com), called `pollenating_insects_users_3`. We used it with `g3.4xlarge` instances, but it may work with other GPU insances as well. After launching the instance, simply
 
-Get started on this RAMP with the [dedicated notebook](pollenating_insects_2_starting_kit.ipynb).
+```
+cd pollenating_insects_3
+ramp_test_submission --submission <submission>
+```
+
+Get started on this RAMP with the [dedicated notebook](pollenating_insects_3_starting_kit.ipynb). The notebook also contains the competition rules.
