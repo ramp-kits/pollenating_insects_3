@@ -17,7 +17,7 @@ using the names `<id>`, where `<id>`s are coming from `data/train.csv` and `data
 
 We have included an [`install.sh`](install.sh) script that we used to set up a fresh Ubuntu 16.04 server with GPU. Depending on your current installation, you may not need to execute all of this, but it shows the versions of the various libraries aginst which we tested the starting kit.
 
-You should set `image_data_format` to `channels_first` in `~/.keras/keras.json`.
+You should set `image_data_format` to `channels_last` in `~/.keras/keras.json`.
 
 Install ramp-workflow (rampwf), then execute
 
