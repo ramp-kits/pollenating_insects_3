@@ -16,7 +16,7 @@ class BatchClassifier(object):
 
     def fit(self, gen_builder):
         batch_size = 16
-        nb_epochs = 10
+        nb_epochs = 1
         lr = 1e-4
 
         gen_train, gen_valid, nb_train, nb_valid =\
